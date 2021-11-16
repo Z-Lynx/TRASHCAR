@@ -5,26 +5,31 @@
  */
 package canvas;
 
-import java.awt.Image;
-import java.awt.image.BufferedImage;
-import javax.swing.ImageIcon;
+import java.awt.*;
+import javax.swing.*;
 
 /**
  *
  * @author Hacking
  */
-public class car {
+public class car extends JFrame{
 
-    private Image car;
+    private Image bgcar;
     private int x = 100;
     private int y = 500;
+    private int width;
 
     public car() {
-        car = new ImageIcon("car2.png").getImage();
+        bgcar = new ImageIcon("car2.png").getImage();
+        width = bgcar.getWidth(this);
     }
 
     public Image getImage() {
-        return car;
+        return bgcar;
+    }
+
+    public int getWidth() {
+        return width;
     }
 
     public int getX() {
@@ -42,5 +47,5 @@ public class car {
     public void setY(int y) {
         this.y = y;
     }
-    
+
 }

@@ -71,10 +71,10 @@ public class trash {
     public void getTrash() {
         if (sotrash[i] + trashInCar < maxTrash) {
             allTime += timeGetTrash;
-            trashInCar = sotrash[i];
+            trashInCar += sotrash[i];
             moneyTrash += moneyInOneTrash;
         } else {
-            allTime = timeRemoveTrash;
+            allTime += timeRemoveTrash;
             trashInCar = 0;
         }
     }
@@ -88,14 +88,15 @@ public class trash {
     }
 
     public void move() {
+        car car = new car();
         x_run = x_run - veleocity;
-        if (x_run < -width) {
+        if (x_run < (car.getWidth() + car.getX()) && i < getLengthTrash()) {
             x_run = 1500;
             i++;
             getTrash();
             sumAllMoney();
             allTime = 0;
-            moneyTrash=0;
+            moneyTrash = 0;
         }
 
     }

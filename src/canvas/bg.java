@@ -6,9 +6,6 @@
 package canvas;
 
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import javafx.scene.layout.Background;
-
 import javax.swing.*;
 
 /**

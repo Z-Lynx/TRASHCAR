@@ -16,19 +16,21 @@ import java.awt.event.ActionListener;
  */
 public class canvas extends JFrame implements ActionListener {
 
-    public int allTrash[] = {1765, 2808, 952, 4206, 3102, 3902, 1292, 3985, 8324, 1928, 4426, 397, 3277};
+    public int allTrash[] = {1765, 2808, 952, 4206, 3102, 3902, 1292, 3985, 8324, 1928, 4426, 397, 3277,0};
     bg bg = new bg();
     car car = new car();
     trash trash = new trash(allTrash);
 
     Timer timer;
+    Image icon = new ImageIcon("trash_icon.png").getImage();
 
     public canvas() {
+
         setLayout(new BorderLayout());
         setSize(1400, 800);
         setTitle("GET TRASH BY TRASH CAR");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+        setIconImage(icon);
         setLocationRelativeTo(null);
         setVisible(true);
         timer = new Timer(30, this);
@@ -49,9 +51,9 @@ public class canvas extends JFrame implements ActionListener {
 
             g2D.drawImage(trash.getImage(), trash.getX_run(), trash.getY(), this);
             g2D.drawImage(trash.getImage(), trash.getX() + 1500, trash.getX(), this);
-            g2D.drawString("SỐ RÁC ĐANG THU LÀ : " + (trash.getI()), 400, 90);
+            g2D.drawString("SỐ RÁC ĐANG THU LÀ : " + (trash.getI()), 400, 70);
 
-            g2D.drawString("TỔNG SỐ TIỀN HIỆN TẠI : " + trash.getAllMoney(), 850, 90);
+            g2D.drawString("TỔNG SỐ TIỀN HIỆN TẠI : " + trash.getAllMoney(), 850, 70);
 
         } else {
 
@@ -59,7 +61,7 @@ public class canvas extends JFrame implements ActionListener {
 
             bg.setX_run(0);
             trash.setX_run(0);
-            g2D.drawString("ĐÃ THU ALL RÁC", 700, 150);
+            g2D.drawString("ĐÃ THU ALL RÁC", 850, 150);
 
             g2D.drawString("TỔNG SỐ TIỀN HIỆN TẠI : " + trash.getAllMoney(), 850, 90);
 
